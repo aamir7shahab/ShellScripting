@@ -88,3 +88,18 @@ while [[ $totalWorkingHrs -le 100 || $noWorkingDays -le 20 ]]; do
 	noWorkingDays=$(( noWorkingDays + 1 ))
 done
 echo "Monthly Wage With condition : $TotalMonthWage"
+
+# Refactor the Code to write a function to get work hours
+getEmpHrs(){
+	# calculating Employee wage using switch case
+	empStatus=$((RANDOM%2+1))
+	if [[ $empStatus -eq 1 ]]; then
+		empHrs=4 #part-time
+	else
+		empHrs=8
+	fi
+	echo $empHrs
+}
+
+empHrsRef="$(getEmpHrs)"
+echo "Got emp. hrs. using function: $empHrsRef"
