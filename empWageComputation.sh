@@ -1,8 +1,7 @@
 echo "Welcome to Employee Wage Computation Program on Master Branch"
 
-<<<<<<< Updated upstream
+# <<<<<<< Updated upstream
 # <<<<<<< HEAD
-#CONSTANT
 #CONSTANT
 WAGE_PER_HOUR=20
 EMPLOYEE_HOUR_FULLTIME=8
@@ -30,3 +29,20 @@ echo "Dialy Wage : $dailyWage"
 partTimeWage=$((WAGE_PER_HOUR*EMPLOYEE_HOUR_PARTTIME))
 echo "Part Time Wage : $partTimeWage"
 # >>>>>>> uc3
+# =======
+
+# calculating Employee wage using switch case
+empStatus=$((RANDOM%2+1))
+
+case $empStatus in
+	1 ) empHrs=$EMPLOYEE_HOUR_PARTTIME
+		;;
+	2 ) empHrs=$EMPLOYEE_HOUR_FULLTIME
+		;;
+	* ) empHrs=0
+		;;
+esac
+empWage=$((empHrs*WAGE_PER_HOUR))
+echo "Total wage using CASE : $empWage"
+# >>>>>>> Stashed changes
+# >>>>>>> uc4
