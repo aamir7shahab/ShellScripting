@@ -48,7 +48,7 @@ echo "Total wage using CASE : $empWage"
 # >>>>>>> Stashed changes
 # >>>>>>> uc4
 
-#claculating Wage for Month
+#calculating Wage for Month
 
 TotalMonthWage=0
 
@@ -67,3 +67,24 @@ for (( i = 0; i < $WORKING_DAY_PER_MONTH; i++ )); do
 	TotalMonthWage=$(( TotalMonthWage + empWage ))
 done
 echo "Monthly Wage : $TotalMonthWage"
+
+# Calculate Wages till a condition of total working hours or days is reached for a month
+totalWorkingHrs=0
+noWorkingDays=0
+TotalMonthWage=0
+while [[ $totalWorkingHrs -le 100 || $noWorkingDays -le 20 ]]; do
+	empStatus=$((RANDOM%2+1))
+	case $empStatus in
+		1 ) empHrs=$EMPLOYEE_HOUR_PARTTIME
+			;;
+		2 ) empHrs=$EMPLOYEE_HOUR_FULLTIME
+			;;
+		* ) empHrs=0
+			;;
+	esac
+	empWage=$((empHrs*WAGE_PER_HOUR))
+	TotalMonthWage=$(( TotalMonthWage + empWage ))
+	totalWorkingHrs=$(( totalWorkingHrs + empHrs ))
+	noWorkingDays=$(( noWorkingDays + 1 ))
+done
+echo "Monthly Wage With condition : $TotalMonthWage"
