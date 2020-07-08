@@ -1,6 +1,6 @@
 echo "Welcome to Employee Wage Computation Program on Master Branch"
 
-<<<<<<< HEAD
+# <<<<<<< HEAD
 #CONSTANT
 WAGE_PER_HOUR=20
 EMPLOYEE_HOUR_FULLTIME=8
@@ -14,15 +14,15 @@ if [[ $attendance -eq 0 ]]; then
 else
 	echo "Employee is Present"
 fi
-=======
+# =======
 # calculating daily Employee Wage
 
 dailyWage=$(( WAGE_PER_HOUR * EMPLOYEE_HOUR_FULLTIME ))
 echo "Dialy Wage : $dailyWage"
->>>>>>> uc2
-=======
+# >>>>>>> uc2
+# =======
 # Add Part time Employee & Wage
 
 partTimeWage=$((WAGE_PER_HOUR*EMPLOYEE_HOUR_PARTTIME))
 echo "Part Time Wage : $partTimeWage"
->>>>>>> uc3
+# >>>>>>> uc3
