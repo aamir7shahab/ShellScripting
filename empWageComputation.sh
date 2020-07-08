@@ -30,7 +30,6 @@ partTimeWage=$((WAGE_PER_HOUR*EMPLOYEE_HOUR_PARTTIME))
 echo "Part Time Wage : $partTimeWage"
 # >>>>>>> uc3
 
-# =======
 # calculating Employee wage using switch case
 empStatus=$((RANDOM%2+1))
 
@@ -43,5 +42,5 @@ case $empStatus in
 		;;
 esac
 empWage=$((empHrs*WAGE_PER_HOUR))
-echo "Total wage using case : $empWage"
+echo "Total wage using CASE : $empWage"
 # >>>>>>> Stashed changes
