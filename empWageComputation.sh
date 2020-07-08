@@ -1,8 +1,7 @@
 echo "Welcome to Employee Wage Computation Program on Master Branch"
 
-<<<<<<< Updated upstream
+# <<<<<<< Updated upstream
 # <<<<<<< HEAD
-#CONSTANT
 #CONSTANT
 WAGE_PER_HOUR=20
 EMPLOYEE_HOUR_FULLTIME=8
@@ -37,15 +36,12 @@ empStatus=$((RANDOM%2+1))
 
 case $empStatus in
 	1 ) empHrs=$EMPLOYEE_HOUR_PARTTIME
-		break
 		;;
 	2 ) empHrs=$EMPLOYEE_HOUR_FULLTIME
-		break
 		;;
 	* ) empHrs=0
-		break
 		;;
 esac
 empWage=$((empHrs*WAGE_PER_HOUR))
 echo "Total wage using case : $empWage"
->>>>>>> Stashed changes
+# >>>>>>> Stashed changes
