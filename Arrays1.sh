@@ -1,4 +1,3 @@
-#!/bin/bash -x
 # creating 10 random numbers of 3 digitand storing it in an array
 for (( i = 0; i < 10; i++ )); do
 	number=$((RANDOM%899+100))
@@ -17,8 +16,6 @@ min2=0;
 for (( i = 0; i < 10; i++ )); do
 	# checking 2nd max
 	if [[ ${arr[i]} -gt $max ]]; then
-		echo $max
-		echo $max2
 		max2=$max
 		max=${arr[i]}
 	fi

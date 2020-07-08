@@ -26,7 +26,5 @@ sorting(){
 
 sorting ${arr[@]}
 echo "Sorted Array: ${arr[@]}"
-
-
 echo "2nd max:${arr[$((len-2))]}"
 echo "2nd min:${arr[1]}"
