@@ -30,22 +30,3 @@ echo "Dialy Wage : $dailyWage"
 partTimeWage=$((WAGE_PER_HOUR*EMPLOYEE_HOUR_PARTTIME))
 echo "Part Time Wage : $partTimeWage"
 # >>>>>>> uc3
-
-# =======
-# calculating Employee wage using switch case
-empStatus=$((RANDOM%2+1))
-
-case $empStatus in
-	1 ) empHrs=$EMPLOYEE_HOUR_PARTTIME
-		break
-		;;
-	2 ) empHrs=$EMPLOYEE_HOUR_FULLTIME
-		break
-		;;
-	* ) empHrs=0
-		break
-		;;
-esac
-empWage=$((empHrs*WAGE_PER_HOUR))
-echo "Total wage using case : $empWage"
->>>>>>> Stashed changes
