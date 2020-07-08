@@ -1,5 +1,5 @@
-echo "Welcome to Employee Wage Computation Program on Master Branch"
-
+echo "--------------Welcome to Employee Wage Computation Program on Master Branch----------------"
+echo
 # <<<<<<< Updated upstream
 # <<<<<<< HEAD
 #CONSTANT
@@ -19,19 +19,21 @@ else
 fi
 
 # =======
+echo "-------------------"
 # calculating daily Employee Wage
 
 dailyWage=$(( WAGE_PER_HOUR * EMPLOYEE_HOUR_FULLTIME ))
 echo "Dialy Wage : $dailyWage"
 # >>>>>>> uc2
-
 # =======
+echo "-------------------"
 # Add Part time Employee & Wage
 
 partTimeWage=$((WAGE_PER_HOUR*EMPLOYEE_HOUR_PARTTIME))
 echo "Part Time Wage : $partTimeWage"
 # >>>>>>> uc3
 # =======
+echo "---------------------------"
 # calculating Employee wage using switch case
 empStatus=$((RANDOM%2+1))
 
@@ -47,7 +49,7 @@ empWage=$((empHrs*WAGE_PER_HOUR))
 echo "Total wage using CASE : $empWage"
 # >>>>>>> Stashed changes
 # >>>>>>> uc4
-
+echo "--------------------"
 #calculating Wage for Month
 
 TotalMonthWage=0
@@ -67,7 +69,7 @@ for (( i = 0; i < $WORKING_DAY_PER_MONTH; i++ )); do
 	TotalMonthWage=$(( TotalMonthWage + empWage ))
 done
 echo "Monthly Wage : $TotalMonthWage"
-
+echo "----------------------------------"
 # Calculate Wages till a condition of total working hours or days is reached for a month
 totalWorkingHrs=0
 noWorkingDays=0
@@ -88,6 +90,7 @@ while [[ $totalWorkingHrs -le 100 || $noWorkingDays -le 20 ]]; do
 	noWorkingDays=$(( noWorkingDays + 1 ))
 done
 echo "Monthly Wage With condition : $TotalMonthWage"
+echo "--------------------------------"
 
 # Refactor the Code to write a function to get work hours
 getEmpHrs(){
@@ -103,3 +106,26 @@ getEmpHrs(){
 
 empHrsRef="$(getEmpHrs)"
 echo "Got emp. hrs. using function: $empHrsRef"
+echo "-------------------------------------------------------------------------------------------"
+# Store the Daily Wage along with the Total Wage
+totalWorkingHrs=0
+noWorkingDays=0
+TotalMonthWage=0
+while [[ $totalWorkingHrs -le 100 || $noWorkingDays -le 20 ]]; do
+	empStatus=$((RANDOM%2+1))
+	case $empStatus in
+		1 ) empHrs=$EMPLOYEE_HOUR_PARTTIME
+			;;
+		2 ) empHrs=$EMPLOYEE_HOUR_FULLTIME
+			;;
+		* ) empHrs=0
+			;;
+	esac
+	empDailyWage=$((empHrs*WAGE_PER_HOUR))
+	dailyWageArray[(($noWorkingDays))]=$empDailyWage
+	TotalMonthWage=$(( TotalMonthWage + empWage ))
+	totalWorkingHrs=$(( totalWorkingHrs + empHrs ))
+	noWorkingDays=$(( noWorkingDays + 1 ))
+done
+echo "Daily Wages are: ${dailyWageArray[@]}"
+echo "Monthly Wage: $TotalMonthWage"
